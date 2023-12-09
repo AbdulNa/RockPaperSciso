@@ -33,7 +33,7 @@ function playRound (playerSelection, computerSelection) {
    } else if (computer === "paper" && player === "rock") {
     return "You Lose!! Paper beats Rock";
 }
-    //returns is invalid options are entered
+    //returns if invalid options are entered
     return "Invalid Selection, Please use Rock, Paper or Scissors"; 
 }
 
@@ -69,4 +69,4 @@ function game () {
 }
 
 //calls the game to begin
-game();
+//game();
