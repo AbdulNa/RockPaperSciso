@@ -27,7 +27,7 @@ body {
 /* Game infot styles*/
 .gameinfo {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px auto;
     flex-grow: 1;
 }
 /* Heading styles */
@@ -43,8 +43,8 @@ h1 {
 }
 
 .icon img {
-    width: 250px;
-    margin: 0 10px;
+    width: 200px;
+    margin: 0 30px;
     cursor: pointer;
 }
 
@@ -81,4 +81,31 @@ footer {
     padding-top: 10px;
     border-top: 1px solid #ccc;
     color: #fff;
+}
+
+/* html2 styles */
+.scores {
+    display: flex; 
+    justify-content: space-around;
+    width: 100%;
+}
+
+.player {
+    color: #333;
+    font-size: 1.5em;
+    margin: 20px auto;
+}
+
+.reset {
+    text-decoration: none;
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: #3498bd;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
 }
