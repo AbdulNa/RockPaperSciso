@@ -68,10 +68,15 @@ h1 {
     cursor: pointer;
 }
 
+.start:hover {
+    background-color: gold;
+}
 /* adding hover to reset */
 .reset:hover {
     background-color: gold;
 }
+
+
 
 /* Footer styles */
 footer {
@@ -83,13 +88,18 @@ footer {
     color: #fff;
 }
 
-/* html2 styles */
+/* html2 styles*/ 
 .scores {
     display: flex; 
     justify-content: space-around;
     width: 100%;
 }
 
+.scoreboard {
+    display: flex; 
+    justify-content: space-around;
+    width: 100%;
+}
 .player {
     color: #333;
     font-size: 1.5em;
@@ -109,3 +119,14 @@ footer {
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
 }
+
+#scoreContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+
+  #leftScore, #rightScore {
+    flex: 1;
+    text-align: center;
+  }
