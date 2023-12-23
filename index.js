@@ -10,8 +10,6 @@ function playRound (playerSelection, computerSelection) {
    let player = playerSelection.toLowerCase();
    let computer = computerSelection;
 
-
-
    if (player === computer) {
     return "It's a Tie";
   }
@@ -26,67 +24,39 @@ function playRound (playerSelection, computerSelection) {
     return `You Lose!! ${computer} beats ${player}`;
   }
 }
-   /*
-   if (player === computer) {
-    return "Its a Tie";
-   }
-   
-   if (player === "rock" && computer === "scissors") {
-    return "You win!! Rock beats Scissors";
 
-   } else if (player === "scissors" && computer === "paper") {
-    return "Your win!! Scissors beats Paper";
-
-   } else if (player === "paper" && computer === "rock") {
-    return "You win!! Paper beats Rock";
-
-   } else if (computer === "rock" && player === "scissors") {
-    return "You Lose Rock beats Scissors";
-
-   } else if (computer === "scissors" && player === "paper") {
-    return "Your Lose!! Scissors beats Paper";
-
-   } else if (computer === "paper" && player === "rock") {
-    return "You Lose!! Paper beats Rock";
-   }
-    //returns if invalid options are entered
-    return "Invalid Selection, Please use Rock, Paper or Scissors"; 
-}
-*/
-
-
-
-
+let playerCount = 0;
+let computerCount = 0;
 //function to play game five times and tell the winner
+
 function game (playerSelection) { 
-    let playerCount = 0;
-    let computerCount = 0;
-
-    for (let i = 0; i < 5; i++) {  
-      const computerSelection = getComputerChoice();    
-      let results = playRound(playerSelection, computerSelection);
-      document.getElementById("gameResults").innerHTML += results + "<br>";
+  if (playerCount === 5 || computerCount === 5) {
+    return alert("Game Over, Click RESET to play again")
+}
+  const computerSelection = getComputerChoice();    
+  let results = playRound(playerSelection, computerSelection);
+  document.getElementById("gameResults").innerHTML = results + "<br>";
     
-        //check for winner after each round 
-        if (results.includes("win")) {
-            playerCount++;
-        }   else if (results.includes("Lose")) {
-            computerCount++;
-        }
-
-    }    
-
+  //check for winner after each round 
+  if (results.includes("Win")) {
+    playerCount++;
+  }   else if (results.includes("Lose")) {
+    computerCount++;
+  }
+  document.getElementById("playerScore").innerHTML = playerCount;
+  document.getElementById("computerScore").innerHTML = computerCount;  
+     
 /// Check for overall winner after 5 rounds
-if (playerCount + computerCount === 5) {
+if (playerCount === 5 || computerCount === 5) {
     if (playerCount > computerCount) {
-      document.getElementById("gameResults").innerHTML += "You Win!!!";
+      document.getElementById("gameResults").innerHTML += alert("You Lose");
     } else if (playerCount < computerCount) {
-      document.getElementById("gameResults").innerHTML += "You Lose";
+      document.getElementById("gameResults").innerHTML += alert("You Lose");
     } else {
-      document.getElementById("gameResults").innerHTML += "It's a tie";
+      document.getElementById("gameResults").innerHTML += alert("It's a tie");
     }
 }
-
+}
 
 // Event listeners for each button
 document.getElementById("rock").addEventListener("click", function() {
@@ -100,3 +70,12 @@ document.getElementById("paper").addEventListener("click", function() {
 document.getElementById("scissors").addEventListener("click", function() {
   game("scissors");
 });
+
+// Reset button 
+function reset() { 
+  playerCount = 0;
+  computerCount = 0;
+  document.getElementById("playerScore").innerHTML = playerCount;
+  document.getElementById("computerScore").innerHTML = computerCount;
+  document.getElementById("gameResults").innerHTML = "";
+}
